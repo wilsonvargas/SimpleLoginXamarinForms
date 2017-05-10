@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleLogin.Views.LoginPage"
+             NavigationPage.HasNavigationBar="false"
+             Title="Login Page">
+    <Grid x:Name="LayoutRoot" BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ActivityIndicator IsRunning="{Binding IsBusy, Mode=TwoWay}" Grid.RowSpan="3" Color="Red" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+        <StackLayout Grid.Row="1" Orientation="Vertical" Margin="0,40,0,10">
+            <StackLayout Orientation="Vertical" VerticalOptions="Center" Margin="0,5,0,0" BackgroundColor="White" Opacity="0.8">
+                <Image Source="Logo.png" Aspect="AspectFit" Margin="10" HeightRequest="200" WidthRequest="200"  VerticalOptions="Center" HorizontalOptions="Center"/>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Grid.Row="2" Orientation="Vertical" BackgroundColor="White" Opacity="0.8">
+            <StackLayout Orientation="Vertical" Margin="40,20">
+                <Entry Text="{Binding User.Email, Mode=TwoWay}" x:Name="EmailEntry" TextColor="Gray" Placeholder="Email" PlaceholderColor="Gray" Keyboard="Email" FontSize="18" HorizontalTextAlignment="Start"/>
+                <Entry Text="{Binding User.Password, Mode=TwoWay}" x:Name="PasswordEntry" TextColor="Gray" Placeholder="Password" PlaceholderColor="Gray" IsPassword="True" FontSize="18" HorizontalTextAlignment="Start"/>
+                <Button Margin="0,10" Text="Login" BackgroundColor="#0072BD" TextColor="White" FontSize="18" Command="{Binding LoginCommand}"/>
+                <Label Text="{Binding Message, Mode=OneWay}" TextColor="#0072BD"/>
+            </StackLayout>
+        </StackLayout>
+
+    </Grid>
+
+</ContentPage>
